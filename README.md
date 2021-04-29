@@ -4,9 +4,7 @@ This module creates a form and a CRUD at admin area for resellers. Individual ch
 
 ### How to use
 
-1. Unpack the git :
-
-``` composer require smile/module-store-locator ```
+1. Unpack the zip to app/code/GamaAcademy/Reseller of your magento root folder or git clone it
 
 2. Enable it
 
