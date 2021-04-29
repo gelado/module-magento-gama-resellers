@@ -1,0 +1,80 @@
+<?php
+
+?>
+
+<form class="form reseller"
+      id="contact-form"
+      method="post"
+      action="post"
+      data-hasrequired="<?php echo __('* Required Fields') ?>">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php echo __('Write Us') ?></span></legend><br />
+        <div class="field note no-label"><?php echo __('Become our reseller! We’ll get back to you as quickly as possible.') ?></div>
+
+        <div class="field name required">
+            <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+            <div class="control">
+                <input name="name" id="name" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+        <div class="field cpf required">
+            <label class="label" for="name"><span><?php echo __('CPF') ?></span></label>
+            <div class="control">
+                <input name="cpf" id="cpf" class="input-text" type="text"
+                       pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" maxlength="14"
+                       title="<?php echo __('Please enter a CPF with only 11 numbers or in a format xxx.xxx.xxx-xx') ?>"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+
+        <div class="field email required">
+            <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+
+        <div class="field phone">
+            <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
+            <div class="control">
+                <input name="phone" id="phone" value="" class="input-text" type="number" maxlength="50" />
+            </div>
+        </div>
+
+        <div class="field city">
+            <label class="label" for="city"><span><?php echo __('City') ?></span></label>
+            <div class="control">
+                <input name="city" id="city" value="" class="input-text" type="text" maxlength="50" />
+            </div>
+        </div>
+
+        <div class="field products">
+            <label class="label" for="telephone"><span><?php echo __('Products that you want to resell') ?></span></label>
+            <div class="control">
+                <input name="products" id="products" value="" class="input-text" type="text" maxlength="150" />
+            </div>
+        </div>
+
+        <div class="field comment">
+            <label class="label" for="comment"><span><?php echo __('General Message') ?></span></label>
+            <div class="control">
+                <textarea name="comment" id="comment" class="input-text" cols="5" rows="3"></textarea>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit"
+                    title="<?php echo __('Submit') ?>"
+                    class="action submit primary"
+
+                    data-mage-init='{"exampleWidget":{}}'>
+
+                <span><?php echo __('Submit') ?></span>
+            </button>
+        </div>
+    </div>
+
+</form>

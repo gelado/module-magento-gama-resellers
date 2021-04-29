@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="GamaAcademy\Reseller\Api\Data\ResellerInterface" type="GamaAcademy\Reseller\Model\Reseller" />
+    <preference for="GamaAcademy\Reseller\Api\ResellerRepositoryInterface" type="GamaAcademy\Reseller\Model\ResellerRepository" />
+    <preference for="GamaAcademy\Reseller\Api\Data\ResellerSearchResultsInterface" type="GamaAcademy\Reseller\Model\ResellerSearchResults" />
+
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="GamaAcademy\Reseller\Api\Data\ResellerInterface" xsi:type="string">
+                    Magento\Framework\EntityManager\AbstractModelHydrator
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="GamaAcademy\Reseller\Model\ResellerRepository">
+        <arguments>
+            <argument name="hydrator" xsi:type="object">Magento\Framework\EntityManager\AbstractModelHydrator</argument>
+        </arguments>
+    </type>
+
+    <!-- Admin - List for UI Component -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="resellers_listing_data_source" xsi:type="string">GamaAcademyResellersSearchResult</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="GamaAcademyResellersSearchResult" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">gama_resellers_rodrigo</argument>
+            <argument name="resourceModel" xsi:type="string">GamaAcademy\Reseller\Model\ResourceModel\Reseller</argument>
+        </arguments>
+    </virtualType>
+
+</config>
